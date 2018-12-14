@@ -6,6 +6,7 @@ const Capacity = () => {
     <div>
       Quelle est la capacité de votre iPhone ?
       <Link to="/questionnaire_état"> <button>ok</button></Link>
+      <Link to="/"> <button>Question précédente</button></Link>
     </div>
   )
 }

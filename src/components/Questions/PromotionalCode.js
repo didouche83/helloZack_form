@@ -6,6 +6,7 @@ const PromotionalCode = () => {
     <div>
       Avez-vous un code promotionnel ?
       <Link to="/questionnaire_mail"> <button>ok</button></Link>
+      <Link to="/questionnaire_accessoires"> <button>Question précédente</button></Link>
     </div>
   )
 }
