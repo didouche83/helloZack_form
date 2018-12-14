@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 .CarouselApp {
     .container {
       margin: 0 auto;
+      margin-top: 5em;
       width: 250px;
       height: 200px;
       position: relative;
@@ -14,7 +17,12 @@
       transform-style: preserve-3d;
       transition: transform 1s;
     }
-  
+    
+    .carouselTitle{
+      display: flex;
+      justify-content: space-around;
+      font-family: 'Lato', sans-serif;
+    }
     .iphone {
       display: block;
       position: absolute;
@@ -29,40 +37,40 @@
     }
   
     .six {
-      transform: rotateY(0deg) translateZ(330px);
+      transform: rotateY(0deg) translateZ(320px);
     }
     .sixPlus {
-      transform: rotateY(30deg) translateZ(330px);
+      transform: rotateY(30deg) translateZ(320px);
     }
     .sixS {
-      transform: rotateY(60deg) translateZ(330px);
+      transform: rotateY(60deg) translateZ(320px);
     }
     .sixSPlus {
-      transform: rotateY(90deg) translateZ(330px);
+      transform: rotateY(90deg) translateZ(320px);
     }
     .se {
-      transform: rotateY(120deg) translateZ(330px);
+      transform: rotateY(120deg) translateZ(320px);
     } 
     .sept {
-      transform: rotateY(150deg) translateZ(330px);
+      transform: rotateY(150deg) translateZ(320px);
     }
     .septPlus {
-      transform: rotateY(180deg) translateZ(330px);
+      transform: rotateY(180deg) translateZ(320px);
     }
     .huit {
-      transform: rotateY(210deg) translateZ(330px);
+      transform: rotateY(210deg) translateZ(320px);
     }
     .huitPlus {
-    transform: rotateY(240deg) translateZ(330px);
+    transform: rotateY(240deg) translateZ(320px);
     }
     .x {
-    transform: rotateY(270deg) translateZ(330px);
+    transform: rotateY(270deg) translateZ(320px);
     }
     .xs {
-    transform: rotateY(300deg) translateZ(330px);
+    transform: rotateY(300deg) translateZ(320px);
     } 
     .xsMax {
-    transform: rotateY(330deg) translateZ(330px);
+    transform: rotateY(330deg) translateZ(320px);
     }
   
     .next, .prev {
@@ -76,6 +84,7 @@
       border-top: 1px solid #FFF;
       box-shadow: 0 5px 0 #999;
       transition: box-shadow 0.1s, top 0.1s;
+      margin-top: 21em;
     }
     .next:hover, .prev:hover { color: #000; }
     .next:active, .prev:active {
