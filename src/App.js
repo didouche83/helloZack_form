@@ -11,7 +11,6 @@ import Mail from './components/Questions/Mail';
 import Carousel from './components/Carousel';
 import './App.css';
 
-
 class App extends Component {
   render() {
     return (
@@ -25,6 +24,7 @@ class App extends Component {
             <Route path="/questionaire_accessoires" component={Accessories} />
             <Route path="/questionnaire_code_promotionnel" component={PromotionalCode} />
             <Route path="/questionnaire_mail" component={Mail} />
+            {/* <Route path="/questionnaire" component={Form} /> */}
           </Switch>
         </BrowserRouter>
       </div>

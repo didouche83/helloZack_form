@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import iphone6 from '../assets/iphone6legend.png';
+import iphoneX from '../assets/iphoneX.png';
+import iphoneX4 from '../assets/iPhoneX4.jpeg';
 import './Carousel.css';
+import Form from './Form';
+
 
 class Carousel extends Component {
 
@@ -20,19 +24,30 @@ class Carousel extends Component {
             iphone6,
             iphone6,
         ],
-        selectedItem : 1,
+        selectedItem : 2,
+        showCarousel : true,
+        open: false,
     };
+    
+      handleClickOpen = () => {
+        this.setState({ open: true });
+      };
+
+      toggleOpening = () => {
+        const { open } = this.state;
+        this.setState({ open: !open });
+      }
 
     moveToSelected = (element) => {
         switch (element) {
             case "next":
-                this.setState({selectedItem: (this.state.selectedItem>= this.state.picturesList.length-1) ? this.state.picturesList.length-1 :   this.state.selectedItem + 1})
+                this.setState({selectedItem: (this.state.selectedItem >= this.state.picturesList.length - 1) ? this.state.picturesList.length - 1 :   this.state.selectedItem + 1})
                 break;
             case "prev":
-                this.setState({selectedItem: (this.state.selectedItem<=-1) ? -1  : this.state.selectedItem - 1})
+                this.setState({selectedItem: (this.state.selectedItem <= 0) ? 0  : this.state.selectedItem - 1})
                 break;
             default:
-            this.setState({selectedItem: (this.state.selectedItem>= this.state.picturesList.length-1) ? this.state.picturesList.length-1 :   this.state.selectedItem + 1})
+            this.setState({selectedItem: (this.state.selectedItem >= this.state.picturesList.length - 1) ? this.state.picturesList.length - 1 :   this.state.selectedItem + 1})
                 break;
         };
     }
@@ -56,6 +71,10 @@ class Carousel extends Component {
             default:
                 return "hidden";
         }
+    }
+
+    visibilityCarouseliPhones = () => {
+        this.setState({showCarousel: false})
     }
 
       
@@ -88,14 +107,16 @@ class Carousel extends Component {
     //   });
       
   render() {
-      const { picturesList } = this.state
+      const { picturesList, selectedItem, open } = this.state
     return (
-        <div>
-            <Link to="/questionnaire_capacité">
-            <div id="carousel">
+        <div>{/*onClick={this.visibilityCarouseliPhones} */}
+            <h2 className="carouselTitle">Quel est votre modèle d'iPhone ?</h2>
+            <div  className="totalCarousel" id="totalCarousel" >
+            {/* <Link to="/questionnaire"> */}
+            <div id="carousel" onClick={this.handleClickOpen}>
                 {picturesList.map((picture, i)=>
                     <div key={i} className={this.classNameSelector(i)}>
-                        <img src={picture} alt={`iPhone n°${i}`} />
+                         <img src={picture} alt={`iPhone n°${i}`} /> {/*onClick={() => this.moveToSelected(i < selectedItem ? 'prev' : 'next' )}  */}
                     </div>)
 
                 }
@@ -126,13 +147,16 @@ class Carousel extends Component {
                 <div className="hideRight">
                     <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg" />
                 </div>*/}
-            </div> 
-            </Link>
+            {/* </Link> */}
+            </div>
+
 
             <div className="buttons">
                 <button id="prev" onClick={() => this.moveToSelected('prev')}>Prev</button>
-                <button id="next" onClick={() => this.moveToSelected('kuyjtyjykhjghfgj')}>Next</button>
+                <button id="next" onClick={() => this.moveToSelected('next')}>Next</button>
             </div>
+            </div>
+            <Form onOpen={() => this.toggleOpening()} openOrNot={open} />
 
         </div>
     )
