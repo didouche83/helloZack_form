@@ -9,6 +9,7 @@ import Accessories from './components/Questions/Accessories';
 import PromotionalCode from './components/Questions/PromotionalCode';
 import Mail from './components/Questions/Mail';
 import Carousel from './components/Carousel';
+import Validation from './components/Validation';
 import './App.css';
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/questionaire_accessoires" component={Accessories} />
             <Route path="/questionnaire_code_promotionnel" component={PromotionalCode} />
             <Route path="/questionnaire_mail" component={Mail} />
+            <Route path="/questionnaire_validé" component={Validation} />
             {/* <Route path="/questionnaire" component={Form} /> */}
           </Switch>
         </BrowserRouter>

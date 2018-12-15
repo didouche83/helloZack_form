@@ -11,26 +11,38 @@ class Carousel extends Component {
 
     state = {
         picturesList : [
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
-            iphone6,
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
+            {name: "iPhone 6",
+            link: iphone6},
         ],
         selectedItem : 2,
         showCarousel : true,
         open: false,
+        iphoneNameSelected: '',
     };
     
       handleClickOpen = () => {
-        this.setState({ open: true });
+        this.setState({ open: true, iphoneNameSelected:this.state.picturesList.name });
+        console.log(this.state.iphoneNameSelected)
       };
 
       toggleOpening = () => {
@@ -107,19 +119,19 @@ class Carousel extends Component {
     //   });
       
   render() {
-      const { picturesList, selectedItem, open } = this.state
+      const { picturesList, selectedItem, open, iphoneNameSelected } = this.state
     return (
         <div>{/*onClick={this.visibilityCarouseliPhones} */}
             <h2 className="carouselTitle">Quel est votre modèle d'iPhone ?</h2>
             <div  className="totalCarousel" id="totalCarousel" >
             {/* <Link to="/questionnaire"> */}
-            <div id="carousel" onClick={this.handleClickOpen}>
-                {picturesList.map((picture, i)=>
-                    <div key={i} className={this.classNameSelector(i)}>
-                         <img src={picture} alt={`iPhone n°${i}`} /> {/*onClick={() => this.moveToSelected(i < selectedItem ? 'prev' : 'next' )}  */}
-                    </div>)
+            <div id="carousel" >
+                {picturesList.map((picture, i)=> {
+                    return( <div key={i} className={this.classNameSelector(i)}>
+                         <img onClick={this.handleClickOpen} src={picture.link} alt={picture.name} /> {/*onClick={() => this.moveToSelected(i < selectedItem ? 'prev' : 'next' )}  */}
+                    </div>)}
 
-                }
+                )}
                 {/* <div className="hideLeft">
                     <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg" />
                 </div>
@@ -156,7 +168,7 @@ class Carousel extends Component {
                 <button id="next" onClick={() => this.moveToSelected('next')}>Next</button>
             </div>
             </div>
-            <Form onOpen={() => this.toggleOpening()} openOrNot={open} />
+            <Form onOpen={() => this.toggleOpening()} name={iphoneNameSelected} openOrNot={open} />
 
         </div>
     )

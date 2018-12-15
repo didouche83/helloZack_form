@@ -9,6 +9,7 @@
     height: 80%;
     margin: 0;
     padding: 0;
+    cursor: pointer;
   }
   #carousel div {
     position: absolute;
