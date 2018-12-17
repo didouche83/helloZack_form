@@ -1,5 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+// import { newAnswer } from '../actions/answerActions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,6 +12,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import SimpleSelect from './SimpleSelect';
 import MultipleSelect from './MultipleSelect';
+import FormHelperText from '@material-ui/core/FormHelperText';
 const reg=/^[0-9]{2,3}$/
 
 class Form extends React.Component {
@@ -22,7 +26,7 @@ class Form extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    console.log(this.state)
+    
   }
 
   // formAnswered = () => {
@@ -44,6 +48,7 @@ class Form extends React.Component {
     const { capacity, promotional, mail } = this.state;
     return (
       <div>
+        {console.log(this.state)}
         {/* <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
           Open form dialog
         </Button> */}
@@ -66,9 +71,13 @@ class Form extends React.Component {
               name="capacity"
               value={capacity}
               onChange={this.formInformationsCapacity}
+              placeholder="32Go, 64Go, 256Go..."
               fullWidth
               required
             />
+            <FormHelperText>
+            Merci de noter une valeur numérique
+          </FormHelperText>
           <SimpleSelect />
           <MultipleSelect />
           <TextField

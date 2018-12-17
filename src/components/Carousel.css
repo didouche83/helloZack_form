@@ -1,12 +1,12 @@
 
   #carousel {
     position: relative;
-    height: 400px;
+    height: 16.5em;
     top: 50%;
     transform: translateY(-50%);
     /* overflow: hidden; */
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 70%;
     margin: 0;
     padding: 0;
     cursor: pointer;
@@ -17,7 +17,7 @@
     opacity: 1;
   }
   #carousel div img {
-    width: 400px;
+    width: 16.5em;
     transition: width 1s;
   }
   #carousel div.hideLeft {
@@ -26,7 +26,7 @@
     transform: translateY(50%) translateX(-50%);
   }
   #carousel div.hideLeft img {
-    width: 200px;
+    width: 8.5em;
   }
   #carousel div.hideRight {
     left: 100%;
@@ -34,7 +34,7 @@
     transform: translateY(50%) translateX(-50%);
   }
   #carousel div.hideRight img {
-    width: 200px;
+    width: 8.5em;
   }
   #carousel div.prev {
     z-index: 5;
@@ -42,7 +42,7 @@
     transform: translateY(50px) translateX(-50%);
   }
   #carousel div.prev img {
-    width: 300px;
+    width: 12.5em;
   }
   #carousel div.prevLeftSecond {
     z-index: 4;
@@ -51,7 +51,7 @@
     opacity: 0.7;
   }
   #carousel div.prevLeftSecond img {
-    width: 200px;
+    width: 8.5em;
   }
   #carousel div.selected {
     z-index: 10;
@@ -64,7 +64,7 @@
     transform: translateY(50px) translateX(-50%);
   }
   #carousel div.next img {
-    width: 300px;
+    width: 12.5em;
   }
   #carousel div.nextRightSecond {
     z-index: 4;
@@ -73,7 +73,7 @@
     opacity: 0.7;
   }
   #carousel div.nextRightSecond img {
-    width: 200px;
+    width: 8.5em;
   }
   
   #carousel div.hidden{
@@ -83,18 +83,21 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-   margin-top: 35em;
+    margin-top: 320px;
   }
 
   .totalCarousel {
     display: flex;
     justify-content: center;
-    margin-top: 3em;
+    margin-top: 2em;
   }
 
   .carouselTitle {
     display: flex;
     justify-content: center;
-    margin-top: 3em;
+    margin-top: 4em;
+    font-size: 1.3em;
   }
+
+
   

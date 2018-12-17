@@ -18,18 +18,12 @@ const styles = theme => ({
     flexWrap: 'wrap',
   },
   formControl: {
-    margin: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    marginTop: theme.spacing.unit,
     width: 300,
   },
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  chip: {
-    margin: theme.spacing.unit / 4,
-  },
-  noLabel: {
-    marginTop: theme.spacing.unit * 3,
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2,
   },
 });
 
@@ -46,7 +40,7 @@ const MenuProps = {
 
 const accessories = [
     "Chargeur",
-    "Ecouteurs iPhone (uniquement si jamais utilisés)",
+    "Ecouteurs iPhone (si neuf)",
     "Boite d'origine",
     "Facture",
 ];
@@ -66,6 +60,7 @@ class MultipleSelect extends React.Component {
   };
 
   handleChange = event => {
+    // console.log('ola', event.target)
     this.setState({ name: event.target.value });
   };
 
@@ -87,6 +82,8 @@ class MultipleSelect extends React.Component {
 
     return (
       <div className={classes.root}>
+    {console.log('bjr', this.state.name)}
+
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="select-multiple">Avez-vous des accessoires ? </InputLabel>
           <Select

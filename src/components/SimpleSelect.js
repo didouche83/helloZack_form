@@ -6,6 +6,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import '../App.css';
+
 
 const styles = theme => ({
   root: {
@@ -20,6 +23,12 @@ const styles = theme => ({
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
   },
+  visible:{
+    display: "block"
+  },
+  hidden:{
+    display: "none"
+  },
 });
 
 class SimpleSelect extends React.Component {
@@ -27,22 +36,27 @@ class SimpleSelect extends React.Component {
     state: '',
     accessories: '',
     category: '',
+    broken: ''
   };
 
   handleChange = event => {
+    // console.log(event.target.name)
     this.setState({ [event.target.name]: event.target.value });
     // this.state.state === "broken" ? <SimpleSelectBroken /> : ''
-    console.log(this.state.state)
+    
   };
 
   render() {
     const { classes } = this.props;
+    const { state, broken } = this.state
+    console.log('vf',state)
+
     return (
       <form className={classes.root} autoComplete="off">
         <FormControl required className={classes.formControl}>
           <InputLabel htmlFor="state-required">Quel est l'état de votre iPhone ?</InputLabel>
           <Select
-            value={this.state.state}
+            value={state}
             onChange={this.handleChange}
             name="state"
             inputProps={{
@@ -60,26 +74,18 @@ class SimpleSelect extends React.Component {
           </FormHelperText> */}
         </FormControl>
 
-        {/* <FormControl required className={classes.formControl}>
-          <InputLabel htmlFor="accessories-required">Avez-vous des accessoires ?</InputLabel>
-          <Select
-            value={this.state.accessories}
-            onChange={this.handleChange}
-            name="accessories"
-            inputProps={{
-              id: 'accessories-required',
-            }}
-            className={classes.selectEmpty}
-          >
-            <MenuItem value="chargeur">Chargeur iPhone</MenuItem>
-            <MenuItem value="écouteurs">Ecouteurs iPhone (uniquement si jamais utilisés)</MenuItem>
-            <MenuItem value="box">Boite d'origine</MenuItem>
-            <MenuItem value="bill">Facture</MenuItem>
-          </Select>
-          {/* <FormHelperText>
-            Assigner un responsable à cet événement
-          </FormHelperText> */}
-        {/* </FormControl> */} */}
+           <TextField
+              className={state === "broken" ? "visible" : "hidden"}
+              autoFocus
+              margin="dense"
+              id="broken"
+              label="Si cassé, merci de nous préciser la nature de la casse"
+              type="text"
+              name="broken"
+              value={broken}
+              onChange={this.handleChange}
+              fullWidth
+            />
       </form>
     );
   }

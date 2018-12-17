@@ -42,7 +42,6 @@ class Carousel extends Component {
     
       handleClickOpen = () => {
         this.setState({ open: true, iphoneNameSelected:this.state.picturesList.name });
-        console.log(this.state.iphoneNameSelected)
       };
 
       toggleOpening = () => {
@@ -120,11 +119,12 @@ class Carousel extends Component {
       
   render() {
       const { picturesList, selectedItem, open, iphoneNameSelected } = this.state
+      console.log('name', this.state.iphoneNameSelected)
+
     return (
         <div>{/*onClick={this.visibilityCarouseliPhones} */}
-            <h2 className="carouselTitle">Quel est votre modèle d'iPhone ?</h2>
+            <p className="carouselTitle">Quel est votre modèle d'iPhone ?</p>
             <div  className="totalCarousel" id="totalCarousel" >
-            {/* <Link to="/questionnaire"> */}
             <div id="carousel" >
                 {picturesList.map((picture, i)=> {
                     return( <div key={i} className={this.classNameSelector(i)}>
@@ -132,44 +132,13 @@ class Carousel extends Component {
                     </div>)}
 
                 )}
-                {/* <div className="hideLeft">
-                    <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg" />
-                </div>
-
-                <div className="prevLeftSecond">
-                    <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg" />
-                </div>
-
-                <div className="prev">
-                    <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg" />
-                </div>
-
-                <div className="selected">
-                    <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg" />
-                </div>
-
-                <div className="next">
-                    <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg" />
-                </div>
-
-                <div className="nextRightSecond">
-                    <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg" />
-                </div>
-
-                <div className="hideRight">
-                    <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg" />
-                </div>*/}
-            {/* </Link> */}
             </div>
-
-
             <div className="buttons">
-                <button id="prev" onClick={() => this.moveToSelected('prev')}>Prev</button>
-                <button id="next" onClick={() => this.moveToSelected('next')}>Next</button>
+                <button id="prev" onClick={() => this.moveToSelected('prev')}>Prec</button>
+                <button id="next" onClick={() => this.moveToSelected('next')}>Suiv</button>
             </div>
             </div>
             <Form onOpen={() => this.toggleOpening()} name={iphoneNameSelected} openOrNot={open} />
-
         </div>
     )
     }
