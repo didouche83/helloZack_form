@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { newAnswer } from '../actions/answerActions';
+
+import './Form.css';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -12,8 +13,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import SimpleSelect from './SimpleSelect';
 import MultipleSelect from './MultipleSelect';
-import FormHelperText from '@material-ui/core/FormHelperText';
-const reg=/^[0-9]{2,3}$/
 
 class Form extends React.Component {
   state = {
@@ -26,17 +25,6 @@ class Form extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
-  }
-
-  // formAnswered = () => {
-  //   alert("Vos informations ont bien été enregistrées. Nous reviendrons vers vous par mail sous 48h.")
-  //   this.handleClose()
-  // }
-
-  formInformationsCapacity = (e) => {
-    e.target.value =! reg ? alert('Merci de rentrer une valeur numérique') : this.setState({capacity: e.target.value})
-    
   }
 
   handleClose = () => {
@@ -48,12 +36,8 @@ class Form extends React.Component {
     const { capacity, promotional, mail } = this.state;
     return (
       <div>
-        {console.log(this.state)}
-        {/* <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Open form dialog
-        </Button> */}
         <Dialog
-         open={openOrNot}
+          open={openOrNot}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
@@ -70,7 +54,7 @@ class Form extends React.Component {
               type="email"
               name="capacity"
               value={capacity}
-              onChange={this.formInformationsCapacity}
+              onChange={this.formInformations}
               placeholder="32Go, 64Go, 256Go..."
               fullWidth
               required
@@ -84,13 +68,12 @@ class Form extends React.Component {
               autoFocus
               margin="dense"
               id="promotional"
-              label="Avez-vous un code promotionnel ?"
+              label="Un code promotionnel ?"
               type="promotional"
               name="promotional"
               value={promotional}
               onChange={this.formInformations}
               fullWidth
-              required
             />
             <TextField
               autoFocus
@@ -105,13 +88,13 @@ class Form extends React.Component {
               fullWidth
               required
             />
-             </DialogContent>
+            </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Annuler
             </Button>
-            <Link to="/questionnaire_validé">
-            <Button color="primary">
+            <Link className="validation" to="/questionnaire_validé">
+            <Button  color="primary">
               Valider
             </Button>
             </Link>

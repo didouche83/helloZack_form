@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import {logo} from '../assets/logo.png';
+import './Validation.css';
 
-export default function Validation() {
+const Validation = () => {
   return (
     <div>
-      Vos informations ont bien été enregistrées. Nous reviendrons vers vous par mail sous 48h !
+      <img src={logo} alt="Logo" />
+      <div className="validationText">
+        Vos informations ont bien été enregistrées. <br/>
+        Nous reviendrons vers vous par mail sous 48h !
+      </div>
     </div>
   )
 }
+
+export default Validation;

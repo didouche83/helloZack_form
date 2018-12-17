@@ -1,15 +1,12 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
-import Chip from '@material-ui/core/Chip';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
 const styles = theme => ({
@@ -43,6 +40,7 @@ const accessories = [
     "Ecouteurs iPhone (si neuf)",
     "Boite d'origine",
     "Facture",
+    "Aucun",
 ];
 
 function getStyles(name, that) {
@@ -60,7 +58,6 @@ class MultipleSelect extends React.Component {
   };
 
   handleChange = event => {
-    // console.log('ola', event.target)
     this.setState({ name: event.target.value });
   };
 
@@ -79,13 +76,10 @@ class MultipleSelect extends React.Component {
 
   render() {
     const { classes } = this.props;
-
     return (
       <div className={classes.root}>
-    {console.log('bjr', this.state.name)}
-
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="select-multiple">Avez-vous des accessoires ? </InputLabel>
+          <InputLabel htmlFor="select-multiple">Avez-vous des accessoires ?</InputLabel>
           <Select
             multiple
             value={this.state.name}
@@ -103,7 +97,6 @@ class MultipleSelect extends React.Component {
             Plusieurs réponses possibles
           </FormHelperText>
         </FormControl>
-        
       </div>
     );
   }
