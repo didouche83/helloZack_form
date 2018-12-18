@@ -7,7 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 
-import logo from '../logos/header1.png';
+import logo from '../logos/header.png';
 import './Header.css';
 
 
