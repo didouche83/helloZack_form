@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import './Carousel.css';
 import Form from './Form';
-import iphone6 from '../assets/iphone6legend.png';
-import iphonex from '../assets/iphoneX8.png';
-
+import iphone6 from '../assets/iphone6.png';
+import iphone6s from '../assets/iphone6S.jpg';
+import iphone6sPlus from '../assets/iphone6SPlus.png';
+import iphoneSE from '../assets/iphoneSE.png';
+import iphone7 from '../assets/iphone7.jpeg';
+import iphone7sPlus from '../assets/iphone7SPlus.png';
+import iphone8 from '../assets/iphone8.png';
+import iphone8Plus from '../assets/iphone8Plus.png';
+import iphoneX from '../assets/iphoneX.png';
+import iphoneXS from '../assets/iphoneXs.png';
+import iphoneXsMax from '../assets/iphoneXsMax.png';
 
 class Carousel extends Component {
 
@@ -11,26 +19,28 @@ class Carousel extends Component {
         picturesList : [
             {name: "iPhone 6",
             link: iphone6},
-            {name: "iPhone 6",
-            link: iphonex},
-            {name: "iPhone 6",
+            {name: "iPhone 6+",
             link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6",
-            link: iphone6},
+            {name: "iPhone 6s",
+            link: iphone6s},
+            {name: "iPhone 6s +",
+            link: iphone6sPlus},
+            {name: "iPhone SE",
+            link: iphoneSE},
+            {name: "iPhone 7",
+            link: iphone7},
+            {name: "iPhone 7s +",
+            link: iphone7sPlus},
+            {name: "iPhone 8",
+            link: iphone8},
+            {name: "iPhone 8 +",
+            link: iphone8Plus},
+            {name: "iPhone X",
+            link: iphoneX},
+            {name: "iPhone XS",
+            link: iphoneXS},
+            {name: "iPhone XS Max",
+            link: iphoneXsMax},
         ],
         selectedItem : 2,
         showCarousel : true,
@@ -38,25 +48,26 @@ class Carousel extends Component {
         iphoneNameSelected: '',
     };
 
-      handleClickOpen = () => {
-        this.setState({ open: true, iphoneNameSelected:this.state.picturesList.name });
-      };
+    handleClickOpen = (picture) => {
+        this.setState({ open: true, iphoneNameSelected:picture });
+    };
 
-      toggleOpening = () => {
+    toggleOpening = () => {
         const { open } = this.state;
         this.setState({ open: !open });
-      }
+    }
 
     moveToSelected = (element) => {
+        const {selectedItem, picturesList} = this.state
         switch (element) {
             case "next":
-                this.setState({selectedItem: (this.state.selectedItem >= this.state.picturesList.length - 1) ? this.state.picturesList.length - 1 : this.state.selectedItem + 1})
+                this.setState({selectedItem: (selectedItem >= picturesList.length - 1) ? picturesList.length - 1 : selectedItem + 1})
                 break;
             case "prev":
-                this.setState({selectedItem: (this.state.selectedItem <= 0) ? 0 : this.state.selectedItem - 1})
+                this.setState({selectedItem: (selectedItem <= 0) ? 0 : selectedItem - 1})
                 break;
             default:
-            this.setState({selectedItem: (this.state.selectedItem >= this.state.picturesList.length - 1) ? this.state.picturesList.length - 1 : this.state.selectedItem + 1})
+            this.setState({selectedItem: (selectedItem >= picturesList.length - 1) ? picturesList.length - 1 : selectedItem + 1})
                 break;
         };
     }
@@ -82,18 +93,24 @@ class Carousel extends Component {
         }
     }
 
-  render() {
-      const { picturesList, selectedItem, open, iphoneNameSelected } = this.state
+    legend = (i) => {
+        return i === this.state.selectedItem ? "legendVisible" : "legendHidden";
+    }
 
+    render() {
+        const { picturesList, open, iphoneNameSelected } = this.state
     return (
-        <div>
+        <div className="carousel">
             <p className="carouselTitle">Quel est votre modèle d'iPhone ?</p>
             <div  className="totalCarousel" >
             <div id="carousel" >
                 {picturesList.map((picture, i)=> {
                     return(
-                    <div key={i} className={this.classNameSelector(i)}>
-                        <img onClick={this.handleClickOpen} src={picture.link} alt={picture.name} />
+                    <div onClick={() => this.handleClickOpen(picture.name)} key={i} className={this.classNameSelector(i)}>
+                    <figure>
+                        <img  src={picture.link} alt={picture.name} />
+                        <figcaption className={this.legend(i)}>{picture.name}</figcaption>
+                        </figure>
                     </div>)}
 
                 )}

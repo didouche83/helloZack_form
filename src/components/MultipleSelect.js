@@ -76,13 +76,14 @@ class MultipleSelect extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const { name } = this.state;
     return (
       <div className={classes.root}>
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="select-multiple">Avez-vous des accessoires ?</InputLabel>
           <Select
             multiple
-            value={this.state.name}
+            value={name}
             onChange={this.handleChange}
             input={<Input id="select-multiple" />}
             MenuProps={MenuProps}

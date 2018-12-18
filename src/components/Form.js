@@ -32,7 +32,7 @@ class Form extends React.Component {
   };
 
   render() {
-    const { openOrNot } = this.props;
+    const { openOrNot, name } = this.props;
     const { capacity, promotional, mail } = this.state;
     return (
       <div>
@@ -44,7 +44,7 @@ class Form extends React.Component {
           <DialogTitle id="form-dialog-title">Questionnaire qualité</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Nous vous invitons à répondre à ces quelques questions afin d'avoir une estimation de la valeur de votre iPhone.
+              Nous vous invitons à répondre à ces quelques questions afin d'avoir une estimation de la valeur de votre {name}.
             </DialogContentText>
             <TextField
               autoFocus
