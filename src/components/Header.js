@@ -6,8 +6,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
+import logo from '../logos/header1.png';
 import './Header.css';
 
 
@@ -29,9 +29,11 @@ const Header = (props) => {
     return(
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className="navbar">
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
+            <a href="https://www.hellozack.fr" >
+              <img className="headerLogo" src={logo} alt="logo" />
+            </a>
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             <p className="title">

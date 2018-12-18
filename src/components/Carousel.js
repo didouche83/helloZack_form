@@ -1,52 +1,21 @@
 import React, { Component } from 'react';
 import './Carousel.css';
 import Form from './Form';
-import iphone6 from '../assets/iphone6.png';
-import iphone6s from '../assets/iphone6S.jpg';
-import iphone6sPlus from '../assets/iphone6SPlus.png';
-import iphoneSE from '../assets/iphoneSE.png';
-import iphone7 from '../assets/iphone7.jpeg';
-import iphone7sPlus from '../assets/iphone7SPlus.png';
-import iphone8 from '../assets/iphone8.png';
-import iphone8Plus from '../assets/iphone8Plus.png';
-import iphoneX from '../assets/iphoneX.png';
-import iphoneXS from '../assets/iphoneXs.png';
-import iphoneXsMax from '../assets/iphoneXsMax.png';
+import list from '../iphones.js';
 
 class Carousel extends Component {
 
     state = {
-        picturesList : [
-            {name: "iPhone 6",
-            link: iphone6},
-            {name: "iPhone 6+",
-            link: iphone6},
-            {name: "iPhone 6s",
-            link: iphone6s},
-            {name: "iPhone 6s +",
-            link: iphone6sPlus},
-            {name: "iPhone SE",
-            link: iphoneSE},
-            {name: "iPhone 7",
-            link: iphone7},
-            {name: "iPhone 7s +",
-            link: iphone7sPlus},
-            {name: "iPhone 8",
-            link: iphone8},
-            {name: "iPhone 8 +",
-            link: iphone8Plus},
-            {name: "iPhone X",
-            link: iphoneX},
-            {name: "iPhone XS",
-            link: iphoneXS},
-            {name: "iPhone XS Max",
-            link: iphoneXsMax},
-        ],
+        picturesList : [],
         selectedItem : 2,
         showCarousel : true,
         open: false,
         iphoneNameSelected: '',
     };
+
+    componentDidMount(){
+        this.setState({picturesList: list})
+    }
 
     handleClickOpen = (picture) => {
         this.setState({ open: true, iphoneNameSelected:picture });

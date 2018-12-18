@@ -119,3 +119,13 @@
   .carousel {
     max-width: 100vw;
   }
+
+  @media screen and (max-width: 321px) {
+    .buttons{
+      margin-top: -15px;
+      position: sticky;
+    }
+    .carouselTitle {
+      margin-top: 1em;
+    }
+  }

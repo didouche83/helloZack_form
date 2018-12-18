@@ -3,3 +3,13 @@
 .title{
     font-family: 'Lato', sans-serif;
 }
+
+.navbar{
+    background: rgb(22, 43, 78);
+}
+
+.headerLogo{
+    max-width: 80px;
+    max-height: 80px;
+    cursor: pointer;
+}
